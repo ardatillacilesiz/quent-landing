@@ -3,191 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUENT | Zero-Setup Akış Yönetimi</title>
+    <title>QUENT | Offload Your Mind.</title>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3PYRUDSOFF7"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3PYRUDS0FF7"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-3PYRUDSOFF7');
+      gtag('config', 'G-3PYRUDS0FF7');
     </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Mono&display=swap" rel="stylesheet">
+
     <style>
-        /* CSS Temel Ayarlar - Dark Mode */
+        /* CSS Temel Ayarlar - Mevcut Değişkenlerini Korudum */
         :root {
-            --color-dark: #121212;
+            --color-dark: #050505; /* Biraz daha koyulaştırdım (Pitch Black hissi) */
             --color-light: #F5F5F5;
-            --color-accent: #CCFF00; /* Neon Lime Vurgu Rengi */
+            --color-accent: #CCFF00; /* Neon Lime */
             --color-secondary: #AAAAAA;
-            --font-stack: 'Inter', sans-serif;
+            --font-main: 'Inter', sans-serif;
+            --font-tech: 'Space Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
             background-color: var(--color-dark);
             color: var(--color-light);
-            font-family: var(--font-stack);
+            font-family: var(--font-main);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            text-align: center;
-        }
-
-        /* Tipografi - Zeki, Kısa, Net */
-        h1, h2, h3 {
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            margin-bottom: 0.5em;
-            color: var(--color-light);
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-        }
-
-        .text-accent {
-            color: var(--color-accent);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigasyon */
-        .header {
-            padding: 20px 0;
+            height: 100vh;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            overflow: hidden; /* Scroll yok, odak tam */
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
+        /* Ana Konteyner */
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        /* Logo / Monogram */
+        .logo-mark {
+            font-family: var(--font-tech);
             color: var(--color-accent);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        /* Başlık - Agresif ve Büyük */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin: 0 0 1rem 0;
+            letter-spacing: -2px;
             text-transform: uppercase;
         }
 
-        /* Hero Bölümü */
-        .hero {
-            padding: 100px 0;
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            color: var(--color-secondary);
-            max-width: 700px;
-            margin: 1.5rem auto 2.5rem;
-        }
-
-        /* CTA Butonu */
-        .cta-button {
-            display: inline-block;
-            background-color: var(--color-accent);
-            color: var(--color-dark);
-            padding: 15px 40px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            border-radius: 8px;
-            transition: background-color 0.3s, transform 0.1s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            background-color: #A9E000; /* Neon Lime Hover */
-            transform: translateY(-2px);
-        }
-        
-        /* Özellikler/Metaphor Bölümü */
-        .features {
-            padding: 60px 0 100px;
-            text-align: left;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .feature-card {
-            background-color: #1A1A1A;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #333;
-            transition: border-color 0.3s;
-        }
-
-        .feature-card:hover {
-            border-color: var(--color-accent);
-        }
-
-        .feature-card h3 {
+        /* Yanıp Sönen İmleç */
+        .cursor {
             color: var(--color-accent);
-            font-size: 1.4rem;
+            animation: blink 1s step-end infinite;
         }
-        
-        .footer {
-            padding: 40px 0;
-            border-top: 1px solid #222;
-            color: #555;
-            font-size: 0.85rem;
+
+        /* Alt Metin */
+        p.subtext {
+            color: var(--color-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            font-family: var(--font-tech);
+        }
+
+        /* Form Alanı */
+        .input-group {
+            display: flex;
+            border-bottom: 2px solid #333;
+            transition: all 0.3s ease;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .input-group:focus-within {
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        input[type="email"] {
+            background: transparent;
+            border: none;
+            color: #FFF;
+            padding: 15px 0;
+            font-size: 1rem;
+            width: 100%;
+            outline: none;
+            font-family: var(--font-tech);
+        }
+
+        input[type="email"]::placeholder {
+            color: #444;
+        }
+
+        button {
+            background: transparent;
+            color: var(--color-accent);
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: var(--font-tech);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            color: #FFF;
+            text-shadow: 0 0 10px var(--color-accent);
+        }
+
+        /* Sol Alt Köşe - Sistem Durumu */
+        .system-status {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            font-family: var(--font-tech);
+            color: #444;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .status-value {
+            color: var(--color-accent);
+        }
+
+        /* Animasyonlar */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; text-shadow: 0 0 0px var(--color-accent); }
+            50% { opacity: 1; text-shadow: 0 0 15px var(--color-accent); }
+            100% { opacity: 0.5; text-shadow: 0 0 0px var(--color-accent); }
+        }
+
+        /* Mobil Uyumluluk */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .system-status { left: 50%; transform: translateX(-50%); width: 100%; text-align: center; bottom: 20px;}
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <header class="header">
-            <div class="logo">QUENT</div>
-            <a href="#waitlist-form" class="cta-button" style="padding: 10px 20px;">Akışınızı Talep Edin</a>
-        </header>
+        <div class="logo-mark">Q_</div>
 
-        <section class="hero">
-            <h1>
-                <span class="text-accent">Önce Değer Yarat,</span> Sonra Yönet.
-            </h1>
-            <p>
-                Size boş bir takvim satmıyoruz. Karakter analizlerine ve biyolojik saatinize uygun, önceden doldurulmuş <span class="text-accent">"İdeal Akış"</span>ı sunuyoruz. Strateji konuşuruz, umut değil.
-            </p>
-            <a id="waitlist-form" href="[BURAYA GERÇEK KAYIT LİNKİ EKLENECEK]" class="cta-button">
-                ZERO-SETUP Başlat
-            </a>
-        </section>
+        <h1>OFFLOAD<br>YOUR MIND<span class="cursor">_</span></h1>
+        
+        <p class="subtext">Your biological RAM is full.<br>The external drive is ready.</p>
 
-        <section class="features">
-            <h2 style="text-align: center;">QUENT: Alışkanlıklar İçin Spotify</h2>
-            <p style="text-align: center; color: var(--color-secondary); font-size: 1.1rem; max-width: 600px; margin: 0.5rem auto 3rem;">
-                Planlama karmaşasını bitiren <span class="text-accent">Veri, Analiz ve Strateji</span> motoru.
-            </p>
-
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>Veri Odaklı Onboarding (The Hook)</h3>
-                    <p>Sıkıcı formlar yok. 3 kritik psikolojik soru ile karakterinizi analiz ederiz. Çözüm sunmak için <span class="text-accent">veriye</span> ihtiyacımız var.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Derin İçgörü (The Reveal)</h3>
-                    <p>Size sadece bir görev listesi vermeyiz. "Sen Entelektüel Yalnızsın" gibi derin bir içgörü sunarak, kendinizi <span class="text-accent">analiz</span> etmenizi sağlarız.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Sıfır Kurulum (Zero-Setup)</h3>
-                    <p>Kullanıcı plan yapmaz, sistemin önerisini onaylar. "Senin için 23:00'e odaklanma saati koydum, onayla" – Tamamen <span class="text-accent">strateji</span> bazlı.</p>
-                </div>
-            </div>
-        </section>
+        <form class="input-group" action="#" method="POST">
+            <input type="email" placeholder="enter_email_address" required>
+            <button type="submit">REQUEST ACCESS [ > ]</button>
+        </form>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            QUENT | &copy; 2025. Tüm Hakları Saklıdır. | 
-            <a href="[GİZLİLİK_POLİTİKASI_LİNKİ]" style="color: #555;">Gizlilik Politikası</a>
-        </div>
-    </footer>
+    <div class="system-status">
+        System Optimization: <span class="status-value" id="progress">00.0%</span>
+    </div>
+
+    <script>
+        // Sayaç Animasyonu - Asla %100 olmaz, hep bekletir.
+        let progress = 0;
+        const progressEl = document.getElementById('progress');
+        
+        function simulateLoading() {
+            const increment = Math.random() * 2; // Rastgele artış
+            if (progress < 98.4) {
+                progress += increment;
+                if(progress > 98.4) progress = 98.4; // 98.4'te takılı kalır
+                progressEl.innerText = progress.toFixed(1) + '%';
+                setTimeout(simulateLoading, Math.random() * 200);
+            }
+        }
+        
+        // Sayfa yüklendiğinde başlat
+        window.onload = simulateLoading;
+    </script>
 
 </body>
 </html>
