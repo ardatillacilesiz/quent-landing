@@ -18,13 +18,11 @@
     <style>
         /* CSS: Apple 'Pro' Design System */
         :root {
-            --bg-color: #000000; /* Saf Siyah (OLED) */
-            --card-bg: #1C1C1E; /* Apple Dark Mode Gri */
-            --text-primary: #F5F5F7; /* Apple Beyazı */
-            --text-secondary: #86868B; /* Apple Metin Grisi */
-            --steel-gradient: linear-gradient(135deg, #E3E3E8 0%, #8E8E93 100%); /* Çelik Efekti */
-            --border-color: #333333;
-            /* Apple Sistem Fontu Çağırma Büyüsü */
+            --bg-color: #000000;
+            --card-bg: #1C1C1E;
+            --text-primary: #F5F5F7;
+            --text-secondary: #86868B;
+            --steel-gradient: linear-gradient(135deg, #E3E3E8 0%, #8E8E93 100%);
             --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
@@ -41,18 +39,17 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            /* Arka plana çok hafif, belli belirsiz bir spot ışığı */
             background: radial-gradient(circle at 50% 10%, #1a1a1a 0%, #000000 60%);
         }
 
         .container {
             text-align: center;
-            max-width: 500px; /* Daha dar, daha derli toplu */
+            max-width: 500px;
             padding: 20px;
             z-index: 2;
         }
 
-        /* Logo: Metalik Doku */
+        /* Logo */
         .logo-mark {
             font-size: 2.5rem;
             margin-bottom: 2rem;
@@ -60,23 +57,21 @@
             font-weight: 600;
             background: var(--steel-gradient);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent; /* Yazıyı metalik yapar */
+            -webkit-text-fill-color: transparent;
             letter-spacing: -1px;
         }
 
-        /* Başlık: San Francisco Fontuyla Netlik */
+        /* Başlık */
         h1 {
             font-size: 3rem;
             font-weight: 700;
             line-height: 1.05;
             margin: 0 0 1rem 0;
-            letter-spacing: -0.03em; /* Apple tarzı sıkı harfler */
+            letter-spacing: -0.03em;
             color: var(--text-primary);
         }
 
-        h1 span {
-            color: var(--text-secondary); /* İkinci satır gri */
-        }
+        h1 span { color: var(--text-secondary); }
 
         /* Alt Metin */
         p.subtext {
@@ -90,12 +85,12 @@
             margin-right: auto;
         }
 
-        /* Apple Tarzı Form Kapsayıcısı */
+        /* Input Alanı */
         .input-wrapper {
-            background: rgba(255, 255, 255, 0.08); /* Buzlu Cam */
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-radius: 99px; /* Pill Shape */
+            border-radius: 99px;
             padding: 6px;
             display: flex;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -124,7 +119,7 @@
         input[type="email"]::placeholder { color: #555; }
 
         button {
-            background: #FFF; /* Apple Beyaz Buton */
+            background: #FFF;
             color: #000;
             border: none;
             border-radius: 99px;
@@ -142,17 +137,37 @@
             transform: scale(1.02);
         }
 
-        /* Footer: Apple Tarzı Yasal Metin */
-        .legal-footer {
+        /* KURUMSAL FOOTER */
+        .corporate-footer {
             position: absolute;
-            bottom: 25px;
+            bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .copyright {
             color: #444;
-            font-size: 0.7rem;
-            font-weight: 400;
+            font-size: 0.75rem;
+            font-weight: 500;
             letter-spacing: 0.02em;
         }
 
-        /* Mobil */
+        .legal-links {
+            display: flex;
+            gap: 15px;
+            font-size: 0.7rem;
+            color: #333;
+        }
+
+        .legal-links span {
+            cursor: default; /* Henüz link değil, sadece metin */
+            transition: color 0.3s;
+        }
+        
+        .legal-links span:hover { color: #666; }
+
         @media (max-width: 600px) {
             h1 { font-size: 2.5rem; }
             .container { padding: 20px; }
@@ -176,7 +191,6 @@
 
         <form name="quent-waiting-list" method="POST" data-netlify="true">
             <input type="hidden" name="form-name" value="quent-waiting-list" />
-            
             <div class="input-wrapper">
                 <input type="email" name="email" placeholder="Email address" required>
                 <button type="submit">Join</button>
@@ -184,8 +198,13 @@
         </form>
     </div>
 
-    <div class="legal-footer">
-        Designed in California style. &copy; 2025
+    <div class="corporate-footer">
+        <div class="copyright">&copy; 2025 QUENT Technologies Inc. All rights reserved.</div>
+        <div class="legal-links">
+            <span>Privacy Policy</span>
+            <span>Terms of Service</span>
+            <span>Security</span>
+        </div>
     </div>
 
 </body>
