@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUENT | Stop Fighting Your Nature.</title>
+    <title>QUENT | Pro.</title>
     
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23CCFF00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.36 6.64a9 9 0 1 1-12.73 0'%3E%3C/path%3E%3Cline x1='12' y1='2' x2='12' y2='12'%3E%3C/line%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E3E3E3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.36 6.64a9 9 0 1 1-12.73 0'%3E%3C/path%3E%3Cline x1='12' y1='2' x2='12' y2='12'%3E%3C/line%3E%3C/svg%3E">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3PYRUDS0FF7"></script>
     <script>
@@ -15,26 +15,25 @@
       gtag('config', 'G-3PYRUDS0FF7');
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap" rel="stylesheet">
-
     <style>
-        /* CSS: Organik & Dark Minimalizm */
+        /* CSS: Apple 'Pro' Design System */
         :root {
-            --color-bg: #080808; /* Tam siyah değil, çok koyu 'canlı' siyah */
-            --color-text: #EAEAEA; /* Göz yormayan kırık beyaz */
-            --color-accent: #CCFF00; /* Neon Lime (Marka Rengi) */
-            --color-muted: #777777;
-            --font-main: 'Inter', sans-serif;
+            --bg-color: #000000; /* Saf Siyah (OLED) */
+            --card-bg: #1C1C1E; /* Apple Dark Mode Gri */
+            --text-primary: #F5F5F7; /* Apple Beyazı */
+            --text-secondary: #86868B; /* Apple Metin Grisi */
+            --steel-gradient: linear-gradient(135deg, #E3E3E8 0%, #8E8E93 100%); /* Çelik Efekti */
+            --border-color: #333333;
+            /* Apple Sistem Fontu Çağırma Büyüsü */
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         * { box-sizing: border-box; }
 
         body {
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-stack);
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -42,149 +41,151 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            /* Hafif bir Noise efekti ekleyerek 'dijital soğukluğu' kırıyoruz */
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            /* Arka plana çok hafif, belli belirsiz bir spot ışığı */
+            background: radial-gradient(circle at 50% 10%, #1a1a1a 0%, #000000 60%);
         }
 
         .container {
             text-align: center;
-            max-width: 580px;
-            padding: 30px;
+            max-width: 500px; /* Daha dar, daha derli toplu */
+            padding: 20px;
             z-index: 2;
         }
 
-        /* Logo: Nefes Alan Organik Animasyon */
+        /* Logo: Metalik Doku */
         .logo-mark {
-            color: var(--color-accent);
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 2rem;
             display: inline-block;
-            font-weight: 300; /* Daha ince, zarif */
-            letter-spacing: -2px;
-            animation: breathe 4s ease-in-out infinite;
+            font-weight: 600;
+            background: var(--steel-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; /* Yazıyı metalik yapar */
+            letter-spacing: -1px;
         }
 
-        /* Ana Başlık: İnsani ve Vurucu */
+        /* Başlık: San Francisco Fontuyla Netlik */
         h1 {
-            font-size: 3.2rem;
-            font-weight: 800; /* Bold ama kaba değil */
-            line-height: 1.1;
-            margin: 0 0 1.5rem 0;
-            letter-spacing: -1.5px;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.05;
+            margin: 0 0 1rem 0;
+            letter-spacing: -0.03em; /* Apple tarzı sıkı harfler */
+            color: var(--text-primary);
         }
 
-        /* Vurgulu Kelime */
         h1 span {
-            color: var(--color-muted); /* "FIGHTING" kelimesini sönük yapıp "NATURE"ı öne çıkarabiliriz veya tam tersi */
-            font-weight: 300;
+            color: var(--text-secondary); /* İkinci satır gri */
         }
 
-        /* Alt Metin: Empatik */
+        /* Alt Metin */
         p.subtext {
-            color: var(--color-muted);
-            font-size: 1.15rem;
-            margin-bottom: 3rem;
-            font-weight: 300;
-            line-height: 1.6;
-            max-width: 480px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            line-height: 1.5;
+            max-width: 400px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Form Yapısı */
-        .input-group {
+        /* Apple Tarzı Form Kapsayıcısı */
+        .input-wrapper {
+            background: rgba(255, 255, 255, 0.08); /* Buzlu Cam */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 99px; /* Pill Shape */
+            padding: 6px;
             display: flex;
-            border-bottom: 1px solid #333;
-            transition: all 0.4s ease;
-            max-width: 350px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            max-width: 380px;
             margin: 0 auto;
-            position: relative;
         }
 
-        .input-group:focus-within {
-            border-bottom: 1px solid var(--color-accent);
+        .input-wrapper:focus-within {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.01);
         }
 
         input[type="email"] {
             background: transparent;
             border: none;
             color: #FFF;
-            padding: 15px 0;
+            padding: 12px 20px;
             font-size: 1rem;
             width: 100%;
             outline: none;
-            font-family: var(--font-main);
-            font-weight: 300;
+            font-family: var(--font-stack);
         }
 
-        input[type="email"]::placeholder { color: #444; }
+        input[type="email"]::placeholder { color: #555; }
 
         button {
-            background: transparent;
-            color: var(--color-accent);
+            background: #FFF; /* Apple Beyaz Buton */
+            color: #000;
             border: none;
-            padding: 15px 10px;
+            border-radius: 99px;
+            padding: 12px 24px;
             cursor: pointer;
-            font-weight: 500;
-            font-family: var(--font-main);
-            font-size: 0.9rem;
-            transition: all 0.3s;
+            font-weight: 600;
+            font-family: var(--font-stack);
+            font-size: 0.95rem;
+            transition: all 0.2s;
             white-space: nowrap;
-            letter-spacing: 1px;
         }
 
         button:hover {
-            color: #FFF;
-            opacity: 0.9;
+            background: #E5E5E5;
+            transform: scale(1.02);
         }
 
-        /* Alt Bilgi */
-        .footer-note {
+        /* Footer: Apple Tarzı Yasal Metin */
+        .legal-footer {
             position: absolute;
-            bottom: 30px;
-            color: #333;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            font-weight: 300;
-        }
-
-        /* Nefes Alma Animasyonu */
-        @keyframes breathe {
-            0% { opacity: 0.6; transform: scale(0.98); text-shadow: 0 0 5px rgba(204, 255, 0, 0.1); }
-            50% { opacity: 1; transform: scale(1); text-shadow: 0 0 20px rgba(204, 255, 0, 0.4); }
-            100% { opacity: 0.6; transform: scale(0.98); text-shadow: 0 0 5px rgba(204, 255, 0, 0.1); }
+            bottom: 25px;
+            color: #444;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
         }
 
         /* Mobil */
         @media (max-width: 600px) {
             h1 { font-size: 2.5rem; }
             .container { padding: 20px; }
-            p.subtext { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="logo-mark">Q</div>
+        <div class="logo-mark">Quent.</div>
 
-        <h1>STOP FIGHTING<br><span>YOUR NATURE.</span></h1>
+        <h1>
+            Stop fighting<br>
+            <span>your nature.</span>
+        </h1>
         
         <p class="subtext">
-            Tembel değilsin, sadece yanlış zaman diliminde yaşıyorsun.<br>
-            Biyolojik ritmine uygun akışı keşfet.
+            Engineered for your biological rhythm.<br>
+            Zero setup. Pure flow.
         </p>
 
-        <form class="input-group" name="quent-waiting-list" method="POST" data-netlify="true">
+        <form name="quent-waiting-list" method="POST" data-netlify="true">
             <input type="hidden" name="form-name" value="quent-waiting-list" />
-            <input type="email" name="email" placeholder="e-posta adresin" required>
-            <button type="submit">DAVETİYE İSTE</button>
+            
+            <div class="input-wrapper">
+                <input type="email" name="email" placeholder="Email address" required>
+                <button type="submit">Join</button>
+            </div>
         </form>
     </div>
 
-    <div class="footer-note">
-        Early Access · Fall 2025
+    <div class="legal-footer">
+        Designed in California style. &copy; 2025
     </div>
 
 </body>
