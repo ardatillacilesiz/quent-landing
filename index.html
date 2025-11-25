@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUENT | Algorithmic Living</title>
+    <style>
+        /* --- RESET & BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #050505; /* Void Black */
+            color: #888; /* Steel Silver */
+            font-family: 'Courier New', Courier, monospace; /* Terminal Font */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1 {
+            color: #FFFFFF;
+            font-size: 4rem;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Glitch Effect on Hover */
+        h1:hover {
+            text-shadow: 2px 0 #FF3333, -2px 0 #CCFF00;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            line-height: 1.6;
+            color: #CCFF00; /* Quent Lime */
+        }
+
+        /* --- INPUT FORM --- */
+        .access-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 400px;
+            padding: 0 20px;
+        }
+
+        input[type="email"] {
+            background: transparent;
+            border: 1px solid #333;
+            padding: 15px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        input[type="email"]:focus {
+            border-color: #CCFF00;
+            box-shadow: 0 0 15px rgba(204, 255, 0, 0.2);
+        }
+
+        button {
+            background-color: #CCFF00;
+            color: #050505;
+            border: none;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(204, 255, 0, 0.4);
+        }
+
+        /* --- FOOTER --- */
+        .system-status {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.75rem;
+            color: #444;
+            text-transform: uppercase;
+        }
+
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            p.subtitle { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>QUENT<span style="color:#CCFF00">.</span></h1>
+        
+        <p class="subtitle">
+            > SYSTEM OPTIMIZATION IN PROGRESS...<br>
+            STOP MANAGING. START LIVING.<br>
+            <span class="blink">_</span>
+        </p>
+
+        <form class="access-form" onsubmit="event.preventDefault(); alert('Access Requested. Sequence Initiated.');">
+            <input type="email" placeholder="ENTER PROTOCOL ID (EMAIL)" required>
+            <button type="submit">REQUEST ACCESS</button>
+        </form>
+    </div>
+
+    <div class="system-status">
+        V1.0.0 [PRE-SEED] /// STATUS: BUILDING
+    </div>
+
+</body>
+</html>
