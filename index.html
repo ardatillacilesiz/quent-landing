@@ -1,133 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUENT | Algorithmic Living</title>
+    <title>QUENT | Zero-Setup Akış Yönetimi</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3PYRUDSOFF7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3PYRUDSOFF7');
+    </script>
     <style>
-        /* --- RESET & BASE --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* CSS Temel Ayarlar - Dark Mode */
+        :root {
+            --color-dark: #121212;
+            --color-light: #F5F5F5;
+            --color-accent: #CCFF00; /* Neon Lime Vurgu Rengi */
+            --color-secondary: #AAAAAA;
+            --font-stack: 'Inter', sans-serif;
+        }
+
         body {
-            background-color: #050505; /* Void Black */
-            color: #888; /* Steel Silver */
-            font-family: 'Courier New', Courier, monospace; /* Terminal Font */
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            font-family: var(--font-stack);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
             text-align: center;
         }
 
-        /* --- TYPOGRAPHY --- */
+        /* Tipografi - Zeki, Kısa, Net */
+        h1, h2, h3 {
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5em;
+            color: var(--color-light);
+        }
+
         h1 {
-            color: #FFFFFF;
-            font-size: 4rem;
-            letter-spacing: -2px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            position: relative;
-            display: inline-block;
-        }
-        
-        /* Glitch Effect on Hover */
-        h1:hover {
-            text-shadow: 2px 0 #FF3333, -2px 0 #CCFF00;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
         }
 
-        p.subtitle {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 3rem auto;
-            line-height: 1.6;
-            color: #CCFF00; /* Quent Lime */
+        .text-accent {
+            color: var(--color-accent);
         }
 
-        /* --- INPUT FORM --- */
-        .access-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 100%;
-            max-width: 400px;
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
             padding: 0 20px;
         }
 
-        input[type="email"] {
-            background: transparent;
-            border: 1px solid #333;
-            padding: 15px;
-            color: #fff;
-            font-family: inherit;
+        /* Navigasyon */
+        .header {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--color-accent);
+            text-transform: uppercase;
+        }
+
+        /* Hero Bölümü */
+        .hero {
+            padding: 100px 0;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--color-secondary);
+            max-width: 700px;
+            margin: 1.5rem auto 2.5rem;
+        }
+
+        /* CTA Butonu */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: 700;
             font-size: 1rem;
-            outline: none;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        input[type="email"]:focus {
-            border-color: #CCFF00;
-            box-shadow: 0 0 15px rgba(204, 255, 0, 0.2);
-        }
-
-        button {
-            background-color: #CCFF00;
-            color: #050505;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.1s;
             border: none;
-            padding: 15px;
-            font-weight: bold;
-            font-size: 1rem;
             cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: transform 0.2s;
         }
 
-        button:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 20px rgba(204, 255, 0, 0.4);
+        .cta-button:hover {
+            background-color: #A9E000; /* Neon Lime Hover */
+            transform: translateY(-2px);
+        }
+        
+        /* Özellikler/Metaphor Bölümü */
+        .features {
+            padding: 60px 0 100px;
+            text-align: left;
         }
 
-        /* --- FOOTER --- */
-        .system-status {
-            position: absolute;
-            bottom: 30px;
-            font-size: 0.75rem;
-            color: #444;
-            text-transform: uppercase;
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        .blink { animation: blinker 1s linear infinite; }
-        @keyframes blinker { 50% { opacity: 0; } }
+        .feature-card {
+            background-color: #1A1A1A;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            transition: border-color 0.3s;
+        }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
-            p.subtitle { font-size: 0.9rem; }
+        .feature-card:hover {
+            border-color: var(--color-accent);
+        }
+
+        .feature-card h3 {
+            color: var(--color-accent);
+            font-size: 1.4rem;
+        }
+        
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid #222;
+            color: #555;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>QUENT<span style="color:#CCFF00">.</span></h1>
-        
-        <p class="subtitle">
-            > SYSTEM OPTIMIZATION IN PROGRESS...<br>
-            STOP MANAGING. START LIVING.<br>
-            <span class="blink">_</span>
-        </p>
+        <header class="header">
+            <div class="logo">QUENT</div>
+            <a href="#waitlist-form" class="cta-button" style="padding: 10px 20px;">Akışınızı Talep Edin</a>
+        </header>
 
-        <form class="access-form" onsubmit="event.preventDefault(); alert('Access Requested. Sequence Initiated.');">
-            <input type="email" placeholder="ENTER PROTOCOL ID (EMAIL)" required>
-            <button type="submit">REQUEST ACCESS</button>
-        </form>
+        <section class="hero">
+            <h1>
+                <span class="text-accent">Önce Değer Yarat,</span> Sonra Yönet.
+            </h1>
+            <p>
+                Size boş bir takvim satmıyoruz. Karakter analizlerine ve biyolojik saatinize uygun, önceden doldurulmuş <span class="text-accent">"İdeal Akış"</span>ı sunuyoruz. Strateji konuşuruz, umut değil.
+            </p>
+            <a id="waitlist-form" href="[BURAYA GERÇEK KAYIT LİNKİ EKLENECEK]" class="cta-button">
+                ZERO-SETUP Başlat
+            </a>
+        </section>
+
+        <section class="features">
+            <h2 style="text-align: center;">QUENT: Alışkanlıklar İçin Spotify</h2>
+            <p style="text-align: center; color: var(--color-secondary); font-size: 1.1rem; max-width: 600px; margin: 0.5rem auto 3rem;">
+                Planlama karmaşasını bitiren <span class="text-accent">Veri, Analiz ve Strateji</span> motoru.
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Veri Odaklı Onboarding (The Hook)</h3>
+                    <p>Sıkıcı formlar yok. 3 kritik psikolojik soru ile karakterinizi analiz ederiz. Çözüm sunmak için <span class="text-accent">veriye</span> ihtiyacımız var.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Derin İçgörü (The Reveal)</h3>
+                    <p>Size sadece bir görev listesi vermeyiz. "Sen Entelektüel Yalnızsın" gibi derin bir içgörü sunarak, kendinizi <span class="text-accent">analiz</span> etmenizi sağlarız.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Sıfır Kurulum (Zero-Setup)</h3>
+                    <p>Kullanıcı plan yapmaz, sistemin önerisini onaylar. "Senin için 23:00'e odaklanma saati koydum, onayla" – Tamamen <span class="text-accent">strateji</span> bazlı.</p>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <div class="system-status">
-        V1.0.0 [PRE-SEED] /// STATUS: BUILDING
-    </div>
+    <footer class="footer">
+        <div class="container">
+            QUENT | &copy; 2025. Tüm Hakları Saklıdır. | 
+            <a href="[GİZLİLİK_POLİTİKASI_LİNKİ]" style="color: #555;">Gizlilik Politikası</a>
+        </div>
+    </footer>
 
 </body>
 </html>
